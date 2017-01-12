@@ -1,0 +1,9 @@
+{
+  "name": "kalima",
+  "version": "0.0.1",
+  "description": "frontend framework",
+  "main": "index.js",
+  "repository": "https://github.com/mateomurphy/kalima.git",
+  "author": "Mateo Murphy <mateo.murphy@gmail.com>",
+  "license": "MIT"
+}
