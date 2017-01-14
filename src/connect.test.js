@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import Baobab from 'baobab'
 import {mount} from 'enzyme'
 
-import {root, branch} from './connect'
+import {provide, connect} from './connect'
 import Dispatcher from './Dispatcher'
 
 const state = new Baobab({name: 'John'}, {asynchronous: false});
@@ -28,7 +28,7 @@ class BasicRoot extends Component {
   }
 }
 
-const Root = root(dispatcher, BasicRoot);
+const Root = provide(dispatcher, BasicRoot);
 
 class Child extends Component {
   render() {

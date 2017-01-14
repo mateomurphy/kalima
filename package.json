@@ -6,7 +6,14 @@
   "repository": "https://github.com/mateomurphy/kalima.git",
   "author": "Mateo Murphy <mateo.murphy@gmail.com>",
   "license": "MIT",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "es",
+    "src"
+  ],
   "scripts": {
+    "build:es": "babel src --out-dir es",
     "test": "jest"
   },
   "dependencies": {

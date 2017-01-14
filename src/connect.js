@@ -5,7 +5,7 @@ function displayName(Component) {
   return Component.name || Component.displayName || 'Component'
 }
 
-export function root(dispatcher, Component) {
+export function provide(dispatcher, Component) {
   const ComposedComponent = class extends React.Component {
     // Handling child context
     getChildContext() {
@@ -18,7 +18,7 @@ export function root(dispatcher, Component) {
     render() {
       return <Component {...this.props} />
     }
-  };
+  }
 
   ComposedComponent.displayName = 'Dispatch' + displayName(Component)
   ComposedComponent.childContextTypes = {
@@ -28,7 +28,7 @@ export function root(dispatcher, Component) {
   return ComposedComponent
 }
 
-export function branch(cursors, Component) {
+export function connect(Component) {
   const ComposedComponent = class extends React.Component {
     render() {
       const suppl = this.context.dispatcher.actions;
