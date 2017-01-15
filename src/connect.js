@@ -20,7 +20,7 @@ export function provide(dispatcher, Component) {
     }
   }
 
-  ComposedComponent.displayName = 'Dispatch' + displayName(Component)
+  ComposedComponent.displayName = 'Providing' + displayName(Component)
   ComposedComponent.childContextTypes = {
     dispatcher: React.PropTypes.instanceOf(Dispatcher),
   }
@@ -37,7 +37,7 @@ export function connect(Component) {
     }
   }
 
-  ComposedComponent.displayName = 'Dispatch' + displayName(Component)
+  ComposedComponent.displayName = 'Connected' + displayName(Component)
   ComposedComponent.contextTypes = {
     dispatcher: React.PropTypes.instanceOf(Dispatcher)
   };
