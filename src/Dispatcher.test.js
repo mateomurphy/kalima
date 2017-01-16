@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import keys from 'lodash.keys'
 import Dispatcher from './Dispatcher'
 import Controller from './Controller'
 
@@ -23,7 +23,7 @@ dispatcher.route({
 })
 
 it('contains handlers', () => {
-  let result = _.keys(dispatcher.handlers)
+  let result = keys(dispatcher.handlers)
   expect(result).toEqual(['test', 'tests.test', 'test_class'])
 })
 

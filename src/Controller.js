@@ -1,8 +1,8 @@
-import _ from 'lodash'
+import forEach from 'lodash.foreach'
 
 export default class Controller {
   constructor(context) {
-    _.each(context, (value, key) => {
+    forEach(context, (value, key) => {
       this[key] = value
     })
   }

@@ -1,4 +1,6 @@
-import _ from 'lodash'
+import forEach from 'lodash.foreach'
+import isObject from 'lodash.isobject'
+import isFunction from 'lodash.isfunction'
 import isClass from 'is-class'
 
 export default class Dispatcher {
@@ -15,7 +17,7 @@ export default class Dispatcher {
     let method = parts.pop()
     let namespace = parts.join('.')
 
-    if (_.isObject(this.handlers[namespace])) {
+    if (isObject(this.handlers[namespace])) {
       return this.handlers[namespace][method](...payload)
     }
 
@@ -23,12 +25,12 @@ export default class Dispatcher {
   }
 
   route(config = {}, namespace = null) {
-    _.each(config, (handler, key) => {
+    forEach(config, (handler, key) => {
       if (namespace) {
         key = `${namespace}.${key}`
       }
 
-      if (_.isFunction(handler)) {
+      if (isFunction(handler)) {
         if (isClass(handler)) {
           return this.routeClass(key, handler)
         }
@@ -36,7 +38,7 @@ export default class Dispatcher {
         return this.routeFunction(key, handler)
       }
 
-      if (_.isObject(handler)) {
+      if (isObject(handler)) {
         return this.route(handler, key)
       }
     })

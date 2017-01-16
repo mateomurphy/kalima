@@ -22,12 +22,15 @@
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/kalima.min.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "clean": "rimraf lib dist es",
-    "prepublish": "npm run clean && npm run check:src",
+    "beforepublish": "npm run clean && npm run build",
     "test": "jest"
   },
   "dependencies": {
     "is-class": "^0.0.4",
-    "lodash": "^4.17.4"
+    "lodash.foreach": "^4.5.0",
+    "lodash.isfunction": "^3.0.8",
+    "lodash.isobject": "^3.0.2",
+    "lodash.keys": "^4.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
